@@ -3,7 +3,11 @@ import { HiOutlineShoppingCart } from "react-icons/hi";
 
 const CartWidget = () => {
   return (
-    <HiOutlineShoppingCart style={{ fontSize: 28, color: 'white'}} />
+    <>
+      <HiOutlineShoppingCart style={{ fontSize: 28, color: 'white'}} />
+      0
+    </>
+    
   )
 }
 

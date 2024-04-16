@@ -1,12 +1,28 @@
-import { Container } from '@chakra-ui/react'
-import { Text } from '@chakra-ui/react'
-import React from 'react'
+import { Box, Heading } from '@chakra-ui/react'
+import React, { useEffect, useState } from 'react'
+import { getLibroCategoria, getLibros } from '../../data/asyncMock'
+import ItemList from '../ItemList/ItemList'
+import { useParams } from 'react-router-dom'
 
 const ItemListContainer = ({saludo}) => {
+  const [libros, setLibros] = useState([])
+  const { categoriaId } = useParams()
+
+  useEffect(() => {
+
+    const dataLibros = categoriaId ? getLibroCategoria(categoriaId) : getLibros()
+
+    dataLibros
+      .then((resp) => setLibros(resp))
+      .catch((error) => {console.log(error)
+      })
+  }, [categoriaId])
+  
   return (
-    <Container maxW='2xl' centerContent marginTop={10}>
-    <Text fontSize='4xl'>{saludo}</Text>
-    </Container>
+    <Box>
+    <Heading textAlign={'center'} fontSize={22} color={'teal.600'} mt={4}>{saludo}</Heading>
+    <ItemList libros={libros} />
+    </Box>
   )
 }
 

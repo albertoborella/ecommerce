@@ -16,7 +16,7 @@ const Item = ({ id, titulo, autor, precio, imagen, stock }) => {
     <div>
       <Card bg="gray.100">
         <CardBody align="center">
-          <Image src={imagen} alt={titulo} borderRadius="lg" h="300px" />
+          <Image src={imagen} alt={titulo} borderRadius="lg" h="350px" padding={2} />
           <Stack mt="3">
             <Heading size="20px" textAlign="center">
               {titulo}
@@ -28,9 +28,11 @@ const Item = ({ id, titulo, autor, precio, imagen, stock }) => {
               ${precio} - Stock:{stock}
             </Text>
             <Divider />
-            <Button fontWeight={100} colorScheme="blue" size="sm">
-              <Link to={`/item/${id}`}>Ver Detalle</Link>
-            </Button>
+            <Link to={`/libro/${id}`}>
+              <Button fontWeight={100} colorScheme="blue" size="sm">
+                Ver Detalle
+              </Button>
+            </Link>
           </Stack>
         </CardBody>
       </Card>

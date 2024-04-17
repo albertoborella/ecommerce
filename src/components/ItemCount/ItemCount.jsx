@@ -18,9 +18,9 @@ const ItemCount = ({ stock, initial, onAdd }) => {
   return (
     <Center>
       <Flex>
-        <Button on onClick={incrementar}>+</Button>
-        <Text fontSize={"md"}>{cantidad}</Text>
-        <Button onClick={decrementar}>-</Button>
+        <Button marginRight={5} onClick={incrementar}>+</Button>
+        <Text fontSize={15} paddingTop={2} textAlign='center'>{cantidad}</Text>
+        <Button marginLeft={5} onClick={decrementar}>-</Button>
       </Flex>
       <Box>
       <Button on onClick={() => onAdd(cantidad)} disabled={!stock}>Agregar al carrito</Button>

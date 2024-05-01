@@ -1,5 +1,5 @@
 import { Box, Heading } from "@chakra-ui/react";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { getLibroCategoria, getLibros } from "../../data/asyncMock";
 import ItemList from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
@@ -7,6 +7,7 @@ import { useParams } from "react-router-dom";
 const ItemListContainer = ({ saludo }) => {
   const [libros, setLibros] = useState([]);
   const { categoriaId } = useParams();
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const dataLibros = categoriaId
@@ -15,17 +16,21 @@ const ItemListContainer = ({ saludo }) => {
 
     dataLibros
       .then((resp) => setLibros(resp))
-      .catch((error) => {
-        console.log(error);
-      });
+      .catch((error) => console.log(error))
+      .finally(() => setLoading(false))
   }, [categoriaId]);
 
   return (
     <Box>
-      <Heading textAlign={"center"} fontSize={22} color={"teal.600"} mt={4}>
+      <Heading textAlign={"center"} fontSize={24} color={"#C53030"} mt={4} mb={4}>
         {saludo}
       </Heading>
-      <ItemList libros={libros} />
+      {
+        loading ?
+        <p style={{textAlign:'center', marginTop:'40px', fontSize:'50px'}}>Buscando......</p>
+        :
+        <ItemList libros={libros} />
+      }
     </Box>
   );
 };

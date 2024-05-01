@@ -11,7 +11,7 @@ export const libros = [
     autor: "Javier Cercas",
     precio: 15000,
     categoria: "Narrativa",
-    stock: 15,
+    stock: 0,
     imagen: independencia,
     paginas: 280
   },

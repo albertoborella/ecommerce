@@ -4,20 +4,28 @@ import NavBar2 from "./components/NavBar/NavBar2";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 import NotFound from "./components/PageNotFound/NotFound";
-
+import { ContextProvider } from "./context/CartContext";
+import Cart from "./components/cart/Cart";
+import OkCompra from "./components/okCompra/OkCompra";
 
 function App() {
   return (
     <ChakraProvider>
-      <BrowserRouter>
-        <NavBar2 />
-        <Routes>
-          <Route path="/" element={<ItemListContainer saludo='Bienvenidos a la Libreria Virtual'/>} />
-          <Route path="/categoria/:categoriaId" element={<ItemListContainer saludo='Bienvenidos a la Libreria Virtual'/>} />
-          <Route path="/libro/:itemId" element={<ItemDetailContainer />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
+      <ContextProvider>
+        <BrowserRouter>
+          <NavBar2 />
+          <Routes>
+            <Route path="/" element={<ItemListContainer saludo="Bienvenidos a la Libreria Virtual" />} />
+            <Route path="/categoria/:categoriaId" element={<ItemListContainer saludo="Bienvenidos a la Libreria Virtual" />
+              }
+            />
+            <Route path="/libro/:itemId" element={<ItemDetailContainer />} />
+            <Route path='/cart' element={<Cart />} />
+            <Route path='/cart/ok' element={<OkCompra />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </ContextProvider>
     </ChakraProvider>
   );
 }

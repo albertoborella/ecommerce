@@ -16,7 +16,7 @@ import {
 const NavBar2 = () => {
   return (
     <Flex
-      bg="teal.300"
+      bg="#F56565"
       w="100%"
       p={4}
       position="relative"
@@ -29,7 +29,7 @@ const NavBar2 = () => {
         <AbsoluteCenter>
           <MenuButton
             as={Button}
-            color="blueviolet"
+            color="#E53E3E"
             fontWeight={300}
             rightIcon={<ChevronDownIcon />}
           >
@@ -38,19 +38,24 @@ const NavBar2 = () => {
         </AbsoluteCenter>
         <MenuList className="opciones">
           <Link to="/categoria/Hechos Reales">
-            <MenuItem color="blueviolet">Hechos Reales</MenuItem>
+            <MenuItem>Hechos Reales</MenuItem>
           </Link>
           <Link to="/categoria/Narrativa">
-            <MenuItem color="blueviolet">Narrativa</MenuItem>
+            <MenuItem>Narrativa</MenuItem>
           </Link>
           <Link to="/categoria/Novela">
-            <MenuItem color="blueviolet">Novela</MenuItem>
+            <MenuItem>Novela</MenuItem>
+          </Link>
+          <Link to="/">
+            <MenuItem>Todos los Libros</MenuItem>
           </Link>
         </MenuList>
       </Menu>
-      <Button bg="teal.400" colorScheme="teal.400">
+      <Link to='/cart'>
+      <Button bg="E53E3E" colorScheme="E53E3E">
         <CartWidget />
       </Button>
+      </Link>
     </Flex>
   );
 };

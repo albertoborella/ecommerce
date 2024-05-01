@@ -16,16 +16,18 @@ const ItemCount = ({ stock, initial, onAdd }) => {
     }
   };
   return (
+    <>
     <Center>
-      <Flex>
-        <Button marginRight={5} onClick={incrementar}>+</Button>
+      <Flex mb={5}>
+        <Button bg={'#FEB2B2'} marginRight={5} onClick={decrementar}>-</Button>
         <Text fontSize={15} paddingTop={2} textAlign='center'>{cantidad}</Text>
-        <Button marginLeft={5} onClick={decrementar}>-</Button>
+        <Button bg={'#FEB2B2'} marginLeft={5} onClick={incrementar}>+</Button>
       </Flex>
-      <Box>
-      <Button on onClick={() => onAdd(cantidad)} disabled={!stock}>Agregar al carrito</Button>
-      </Box>
-    </Center>
+      </Center>
+      <Center>
+      <Button bg={'#FEB2B2'} onClick={() => onAdd(cantidad)} disabled={!stock}>Agregar al carrito</Button>
+      </Center>
+    </>
   );
 };
 

@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import {
   Card,
+  CardFooter,
   Box,
   Stack,
   Heading,
@@ -11,6 +12,9 @@ import {
   Divider,
 } from "@chakra-ui/react";
 import ItemCount from "../ItemCount/ItemCount";
+import Context from "../../context/CartContext";
+import { Link } from "react-router-dom";
+import CartWidget from "../CartWidget/CartWidget";
 
 const ItemDetail = ({
   id,
@@ -22,45 +26,65 @@ const ItemDetail = ({
   precio,
   stock,
 }) => {
+  const [cantidad, setCantidad] = useState(0);
+  const { addItem } = useContext(Context);
+
   const onAdd = (cantidad) => {
-    console.log(cantidad);
+    const item = { id, titulo, precio, stock };
+    setCantidad(cantidad);
+    addItem(item, cantidad);
+    console.log(`Agregaste ${cantidad} unidades`);
   };
 
   return (
-    <div>
+    <>
       <Center>
-      <Card bg="gray.100" width='400px' marginTop={15} marginBottom={15}>
-        <CardBody align="center" padding='10px'>
-          <Image src={imagen} alt={titulo} borderRadius="lg" width='90%' />
-          <Stack mt="3">
-            <Heading size="20px" textAlign="center" paddingTop='1px'>
-              {titulo}
-            </Heading>
-            <Text color="blue.800" fontSize="xs">
-              Autor: {autor}
-            </Text>
-            <Text color="blue.800" fontSize="xs">
-              Categoria: {categoria}
-            </Text>
-            <Text color="blue.800" fontSize="xs">
-              Páginas: {paginas}
-            </Text>
-            <Text color="red.800" fontSize={14}>
-              Precio: ${precio} - Stock: {stock}
-            </Text>
-            <Divider borderColor={'red'} />
+        <Card
+          direction={{ base: "column", sm: "row" }}
+          overflow="hidden"
+          variant="outline"
+          mt={70}
+        >
+          <Image
+            src={imagen}
+            alt={titulo}
+            objectFit="cover"
+            maxW={{ base: "100%", sm: "250px" }}
+          />
+          <Stack mt="2">
+            <CardBody align="center" padding="10px">
+              <Heading size="25px" textAlign="center" paddingTop="1px">
+                {titulo}
+              </Heading>
+              <Text color="blue.800" fontSize="ms">
+                Autor: {autor}
+              </Text>
+              <Text color="blue.800" fontSize="ms">
+                Categoria: {categoria}
+              </Text>
+              <Text color="blue.800" fontSize="xs">
+                Páginas: {paginas}
+              </Text>
+              <Text color="red.800" fontSize={16} p={5}>
+                Precio: ${precio} - Stock: {stock}
+              </Text>
+              <Divider borderColor={"red"} />
+            </CardBody>
+            <CardFooter>
+              <Box margin='auto' >
+              {cantidad > 0 ? (
+                <Link to="/cart"><CartWidget /></Link>
+              ) : (
+                <Box paddingTop={2}>
+                  <ItemCount initial={1} stock={stock} onAdd={onAdd} />
+                </Box>
+              )}
+              </Box>
+            </CardFooter>
           </Stack>
-          <Box paddingTop={2}>
-            <ItemCount
-              initial={1}
-              stock={stock}
-              onAdd={(cantidad) => console.log("cantidad agregada", cantidad)}
-            />
-          </Box>
-        </CardBody>
-      </Card>
+        </Card>
       </Center>
-    </div>
+    </>
   );
 };
 

@@ -48,9 +48,6 @@ export const ContextProvider = ({ children }) => {
         return total
     }
 
-    console.log(getCantidad())
-    console.log(cart)
-
   return (
     <Context.Provider
         value={{

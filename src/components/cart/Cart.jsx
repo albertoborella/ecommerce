@@ -19,7 +19,6 @@ import {
 
 const Cart = () => {
     const {cart, getTotal, removeItem, clearCart} = useContext(Context)
-    console.log('cart', cart)
     if(cart.length === 0) {
         return (
             <Flex direction={'column'} justify={'center'} textAlign={'center'} mt={30}>
@@ -72,7 +71,7 @@ const Cart = () => {
           <Button mt={"20px"} onClick={() => clearCart()}>
             Vaciar carrito
           </Button>
-          <Link to='ok/'><Button mt={"20px"}>Finalizar compra</Button></Link>
+          <Link to='/checkout'><Button mt={"20px"}>Finalizar compra</Button></Link>
         </Flex>
       </Box>
     </Box>

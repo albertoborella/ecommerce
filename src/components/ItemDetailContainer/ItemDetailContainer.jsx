@@ -3,6 +3,8 @@ import { getLibroId } from "../../data/asyncMock";
 import ItemDetail from "../ItemDetail/ItemDetail";
 import { useParams, useNavigate } from "react-router-dom";
 import { BiFontSize } from "react-icons/bi";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../../config/firebase";
 
 const ItemDetailContainer = () => {
   const [libro, setLibro] = useState({});
@@ -11,17 +13,18 @@ const ItemDetailContainer = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    getLibroId(itemId)
-      .then((libro) => {
-        if(!libro) {
-          navigate('/*')
-        }
-        else{
-          setLibro(libro)
-        }
-      })
-      .catch((error) => console.log(error))
-      .finally(() => setLoading(false))
+    const getLibro = async () => {
+
+      const queryRef = doc(db, 'libros', itemId)
+      const response =  await getDoc(queryRef)
+      const newItem = {
+        ...response.data(),
+        id: response.id
+      }
+      setLibro(newItem)
+      setLoading(false)
+    }
+    getLibro()
   }, [])
 
   return (

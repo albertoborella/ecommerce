@@ -33,7 +33,6 @@ const ItemDetail = ({
     const item = { id, titulo, precio, stock };
     setCantidad(cantidad);
     addItem(item, cantidad);
-    console.log(`Agregaste ${cantidad} unidades`);
   };
 
   return (

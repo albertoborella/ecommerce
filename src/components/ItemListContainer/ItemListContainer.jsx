@@ -3,21 +3,38 @@ import React, { useContext, useEffect, useState } from "react";
 import { getLibroCategoria, getLibros } from "../../data/asyncMock";
 import ItemList from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
+import { db } from "../../config/firebase";
+import { collection, getDocs, where, query } from "firebase/firestore";
 
 const ItemListContainer = ({ saludo }) => {
+  
   const [libros, setLibros] = useState([]);
   const { categoriaId } = useParams();
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    const dataLibros = categoriaId
-      ? getLibroCategoria(categoriaId)
-      : getLibros();
+    setLoading(true)
+    const getData = async () => {
+      const coleccion = collection(db, 'libros')
 
-    dataLibros
-      .then((resp) => setLibros(resp))
-      .catch((error) => console.log(error))
-      .finally(() => setLoading(false))
+      const queryRef = !categoriaId ?
+      coleccion
+      :
+      query(coleccion, where('categoria', '==', categoriaId))
+
+      const response = await getDocs(queryRef)
+
+      const libros = response.docs.map((doc) => {
+        const newItem = {
+          ...doc.data(),
+          id: doc.id
+        }
+        return newItem
+      })
+      setLibros(libros)
+      setLoading(false)
+    }
+    getData()
   }, [categoriaId]);
 
   return (

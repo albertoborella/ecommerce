@@ -12,7 +12,6 @@ import {
   Image,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import ItemCount from "../ItemCount/ItemCount";
 import Context from "../../context/CartContext";
 
 const Item = ({ id, titulo, autor, precio, imagen, stock }) => {
@@ -45,7 +44,7 @@ const Item = ({ id, titulo, autor, precio, imagen, stock }) => {
             </Button>
             :
             <Flex alignItems='center' gap='4' margin={'auto'}>
-            <Button isDisabled='true' size={'md'} bg={'#38A169'} fontSize={12} h={8}>
+            <Button isDisabled={'true'} size={'md'} bg={'#38A169'} fontSize={12} h={8}>
                     Ver detalle
             </Button>
             <Text color={'red'} fontSize={12}>Stock: {stock}</Text>

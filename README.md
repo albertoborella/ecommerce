@@ -1,8 +1,14 @@
-# React + Vite
+# E-commerce
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Descripción
+El siguiente proyecto pretende comenzar con el desarrollo de un ecommerce referido a una venta de libros.
 
-Currently, two official plugins are available:
+## Herramientas Utilizadas
+Este proyecto fué realizado con react - vite.
+Para los estilos basicamente se utilizó Chakra-iu y algunas hojas externas css en unos pocos componentes
+En cuanto a la base de datos, se utilizó la herramienta Firebase
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Comandos para ejecutar la aplicación
+Una vez instalado el proyecto, y teniendo react instalado, se puede correr con el comando
+npm run dev y corriendo el mismo en local en el puerto 5173
+

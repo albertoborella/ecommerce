@@ -7,7 +7,6 @@ import NotFound from "./components/PageNotFound/NotFound";
 import { ContextProvider } from "./context/CartContext";
 import Cart from "./components/cart/Cart";
 import Checkout from "./components/checkout/Checkout";
-import OkCompra from "./components/okCompra/OkCompra";
 
 function App() {
   return (
@@ -16,13 +15,12 @@ function App() {
         <BrowserRouter>
           <NavBar2 />
           <Routes>
-            <Route path="/" element={<ItemListContainer saludo="Bienvenidos a la Libreria Virtual" />} />
+            <Route path="/" element={<ItemListContainer saludo="Libreria Online" />} />
             <Route path="/categoria/:categoriaId" element={<ItemListContainer saludo="Bienvenidos a la Libreria Virtual" />
               }
             />
             <Route path="/libro/:itemId" element={<ItemDetailContainer />} />
             <Route path='/cart' element={<Cart />} />
-            <Route path='/cart/ok' element={<OkCompra />} />
             <Route path='/checkout' element={<Checkout />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

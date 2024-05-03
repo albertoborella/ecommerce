@@ -31,13 +31,13 @@ const Cart = () => {
   return (
     <Box w={"80%"} margin={"40px auto"}>
       <TableContainer>
-        <Table variant="striped" colorScheme="teal" size={"sm"} mb={"20px"}>
+        <Table variant="striped" colorScheme="green.300" size={"sm"} mb={"20px"}>
           <Thead>
             <Tr>
-              <Th color={'blue'} fontSize='15px'>Título</Th>
-              <Th color={'blue'} fontSize='15px'>Cantidad</Th>
-              <Th color={'blue'} fontSize='15px'>Precio</Th>
-              <Th color={'blue'} fontSize='15px'>Subtotal</Th>
+              <Th color={'green.500'} fontSize='15px'>Título</Th>
+              <Th color={'green.500'} fontSize='15px'>Cantidad</Th>
+              <Th color={'green.500'} fontSize='15px'>Precio</Th>
+              <Th color={'green.500'} fontSize='15px'>Subtotal</Th>
               <Th></Th>
             </Tr>
           </Thead>
@@ -49,7 +49,7 @@ const Cart = () => {
                 <Td>{prod.precio}</Td>
                 <Td>{prod.precio * prod.cantidad}</Td>
                 <Td>
-                  <Button onClick={() => removeItem(prod.id)}>
+                  <Button bg={'green.200'} onClick={() => removeItem(prod.id)}>
                     <RiDeleteBin3Fill />
                   </Button>
                 </Td>
@@ -67,11 +67,11 @@ const Cart = () => {
         >
           Total: ${getTotal()}
         </Box>
-        <Flex textAlign={"center"} margin={"auto"} gap={6}>
-          <Button mt={"20px"} onClick={() => clearCart()}>
+        <Flex justify={'center'} align={'center'} margin={"auto"} gap={6}>
+          <Button mt={"20px"} bg={'green.500'} onClick={() => clearCart()}>
             Vaciar carrito
           </Button>
-          <Link to='/checkout'><Button mt={"20px"}>Finalizar compra</Button></Link>
+          <Link to='/checkout'><Button mt={"20px"} bg={'green.500'}>Finalizar compra</Button></Link>
         </Flex>
       </Box>
     </Box>

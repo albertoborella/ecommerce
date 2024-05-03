@@ -2,7 +2,6 @@ import independencia from "../assets/tapas/Independencia.jpg"
 import anatomia from "../assets/tapas/anatomia_de_un_instante.jpg"
 import aramburu from "../assets/tapas/Aramburu.jpg"
 import patria from "../assets/tapas/patria.png"
-import diario from "../assets/tapas/diario_de_una_temporada_en_el_quinto_piso.webp"
 
 export const libros = [
   {
@@ -43,16 +42,6 @@ export const libros = [
     categoria: "Novela",
     stock: 15,
     imagen: patria,
-    paginas: 280
-  },
-  {
-    id: 5,
-    titulo: "Diario de una temporada en el quinto piso",
-    autor: "Javier de la Torre",
-    precio: 13000,
-    categoria: "Hechos Reales",
-    stock: 15,
-    imagen: diario,
     paginas: 280
   },
 ];

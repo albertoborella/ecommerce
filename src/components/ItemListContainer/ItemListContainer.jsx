@@ -1,6 +1,5 @@
 import { Box, Heading } from "@chakra-ui/react";
 import React, { useContext, useEffect, useState } from "react";
-import { getLibroCategoria, getLibros } from "../../data/asyncMock";
 import ItemList from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
 import { db } from "../../config/firebase";
@@ -39,7 +38,7 @@ const ItemListContainer = ({ saludo }) => {
 
   return (
     <Box>
-      <Heading textAlign={"center"} fontSize={24} color={"#C53030"} mt={4} mb={4}>
+      <Heading textAlign={"center"} fontSize={24} color={"#276749"} mt={4} mb={4}>
         {saludo}
       </Heading>
       {

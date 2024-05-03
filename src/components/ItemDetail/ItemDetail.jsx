@@ -51,23 +51,23 @@ const ItemDetail = ({
             maxW={{ base: "100%", sm: "250px" }}
           />
           <Stack mt="2">
-            <CardBody align="center" padding="10px">
-              <Heading size="25px" textAlign="center" paddingTop="1px">
+            <CardBody align="center"pt='2px'>
+              <Heading fontSize="25px" textAlign="center" color="green.700" mb='10px'>
                 {titulo}
               </Heading>
-              <Text color="blue.800" fontSize="ms">
+              <Text color="green.600" fontSize="ms">
                 Autor: {autor}
               </Text>
-              <Text color="blue.800" fontSize="ms">
+              <Text color="green.600" fontSize="ms">
                 Categoria: {categoria}
               </Text>
-              <Text color="blue.800" fontSize="xs">
+              <Text color="green.600" fontSize="xs">
                 Páginas: {paginas}
               </Text>
-              <Text color="red.800" fontSize={16} p={5}>
+              <Text color="green.600" fontSize={16} p={5} fontWeight={'bold'}>
                 Precio: ${precio} - Stock: {stock}
               </Text>
-              <Divider borderColor={"red"} />
+              <Divider borderColor={"green.700"} />
             </CardBody>
             <CardFooter>
               <Box margin='auto' >

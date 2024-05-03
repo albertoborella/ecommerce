@@ -19,13 +19,13 @@ const ItemCount = ({ stock, initial, onAdd }) => {
     <>
     <Center>
       <Flex mb={5}>
-        <Button bg={'#FEB2B2'} marginRight={5} onClick={decrementar}>-</Button>
-        <Text fontSize={15} paddingTop={2} textAlign='center'>{cantidad}</Text>
-        <Button bg={'#FEB2B2'} marginLeft={5} onClick={incrementar}>+</Button>
+        <Button bg={'green.400'} marginRight={5} onClick={decrementar}>-</Button>
+        <Text fontSize={18} paddingTop={2} textAlign='center' color={'green.500'} fontWeight={'bold'}>{cantidad}</Text>
+        <Button bg={'green.400'} marginLeft={5} onClick={incrementar}>+</Button>
       </Flex>
       </Center>
       <Center>
-      <Button bg={'#FEB2B2'} onClick={() => onAdd(cantidad)} disabled={!stock}>Agregar al carrito</Button>
+      <Button bg={'green.500'} onClick={() => onAdd(cantidad)} disabled={!stock}>Agregar al carrito</Button>
       </Center>
     </>
   );

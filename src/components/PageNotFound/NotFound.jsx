@@ -1,6 +1,6 @@
 import React from "react";
 import "../../assets/404-title-pic.jpg";
-import { Box, Heading, Text } from "@chakra-ui/react";
+import { Box, Heading, Text, Image } from "@chakra-ui/react";
 
 const NotFound = () => {
   return (

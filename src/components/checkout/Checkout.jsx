@@ -40,7 +40,6 @@ const Checkout = () => {
         setEmailMatch(false)
       }
     }
-
     const validateForm = () => {
       const errors = {}
       if(!user.name){
@@ -107,7 +106,6 @@ const Checkout = () => {
         </Flex>
       </FormControl>
     </Flex>
-    
   );
 };
 

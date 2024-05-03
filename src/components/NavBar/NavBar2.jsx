@@ -16,7 +16,7 @@ import {
 const NavBar2 = () => {
   return (
     <Flex
-      bg="#F56565"
+      bg="#48BB78"
       w="100%"
       p={4}
       position="relative"
@@ -29,7 +29,7 @@ const NavBar2 = () => {
         <AbsoluteCenter>
           <MenuButton
             as={Button}
-            color="#E53E3E"
+            color="#48BB78"
             fontWeight={300}
             rightIcon={<ChevronDownIcon />}
           >

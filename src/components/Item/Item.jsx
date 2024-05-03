@@ -19,20 +19,16 @@ const Item = ({ id, titulo, autor, precio, imagen, stock }) => {
   const context = useContext(Context)
 
   return (
-    <Card maxW="xs" m={1} w={'85%'} margin='10px auto'>
-        <CardBody>
+    <Card w={'85%'} margin='10px auto'>
+        <CardBody padding='0px'>
             <Image
             src={imagen}
             alt={titulo}
-            borderRadius="lg"
-            boxSize='100%'
-            objectFit='cover' 
-            w='350px'
-            h='350px' 
-            
+            w='230px'
+            h='250px'
             />
             <Stack mt="2" spacing="1">
-            <Heading size="sm" color="#608e8e" textAlign='center'> {titulo}</Heading>
+            <Heading size="sm" color='#2F855A' textAlign='center'> {titulo}</Heading>
             <Text color="#c86f43" fontSize="sm" textAlign={'center'}>
                 ${precio}
             </Text>
@@ -42,17 +38,17 @@ const Item = ({ id, titulo, autor, precio, imagen, stock }) => {
         <CardFooter>
           {
             stock !== 0 ?
-            <Button size={'md'} bg={'#FC8181'} fontSize={12} h={8}>
+            <Button size={'md'} bg='#38A169' fontSize={12} h={8}>
                 <Link to={`/libro/${id}`}>
                     Ver detalle
                 </Link>
             </Button>
             :
             <Flex alignItems='center' gap='4' margin={'auto'}>
-            <Button isDisabled='true' size={'md'} bg={'#FC8181'} fontSize={12} h={8}>
+            <Button isDisabled='true' size={'md'} bg={'#38A169'} fontSize={12} h={8}>
                     Ver detalle
             </Button>
-            <Text color={'red'}>Stock: {stock}</Text>
+            <Text color={'red'} fontSize={12}>Stock: {stock}</Text>
             </Flex>
           }
         </CardFooter>

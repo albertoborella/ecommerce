@@ -5,10 +5,10 @@ El siguiente proyecto pretende comenzar con el desarrollo de un ecommerce referi
 
 ## Herramientas Utilizadas
 Este proyecto fué realizado con react - vite.
-Para los estilos basicamente se utilizó Chakra-iu y algunas hojas externas css en unos pocos componentes
+Para los estilos basicamente se utilizó Chakra-ui y algunas hojas externas css en unos pocos componentes
 En cuanto a la base de datos, se utilizó la herramienta Firebase
 
 ## Comandos para ejecutar la aplicación
 Una vez instalado el proyecto, y teniendo react instalado, se puede correr con el comando
-npm run dev y corriendo el mismo en local en el puerto 5173
+`npm run dev` y se podrá correr en Local: http://localhost:5173/
 
